@@ -1,0 +1,127 @@
+@import 'leaflet/dist/leaflet.css';
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  /* Tema Sol de Mañana (Campo Luminoso — Crema Tierra, Café Tostado y Verde Follaje) */
+  :root {
+    --background: 36 42% 96%;
+    --foreground: 25 46% 12%;
+
+    --card: 36 38% 99%;
+    --card-foreground: 25 46% 12%;
+
+    --popover: 36 38% 99%;
+    --popover-foreground: 25 46% 12%;
+
+    --primary: 138 58% 31%;
+    --primary-foreground: 36 42% 98%;
+
+    --secondary: 33 34% 90%;
+    --secondary-foreground: 25 44% 18%;
+
+    --muted: 34 28% 91%;
+    --muted-foreground: 25 22% 40%;
+
+    --accent: 138 40% 90%;
+    --accent-foreground: 138 58% 22%;
+
+    --destructive: 0 72% 48%;
+    --destructive-foreground: 36 42% 98%;
+
+    --border: 32 25% 83%;
+    --input: 32 25% 83%;
+    --ring: 138 58% 34%;
+
+    --radius: 0.75rem;
+  }
+
+  /* Tema Noche Campesina (Café Oscuro #17110C / #241A13 y Verde Follaje Vivo #34A053) */
+  .dark {
+    --background: 27 32% 7%;
+    --foreground: 36 32% 93%;
+
+    --card: 25 31% 11%;
+    --card-foreground: 36 32% 93%;
+
+    --popover: 25 32% 10%;
+    --popover-foreground: 36 32% 93%;
+
+    --primary: 137 51% 42%;
+    --primary-foreground: 36 40% 98%;
+
+    --secondary: 25 26% 16%;
+    --secondary-foreground: 36 30% 90%;
+
+    --muted: 25 24% 15%;
+    --muted-foreground: 32 18% 64%;
+
+    --accent: 137 32% 18%;
+    --accent-foreground: 137 60% 78%;
+
+    --destructive: 0 68% 46%;
+    --destructive-foreground: 36 40% 98%;
+
+    --border: 26 24% 20%;
+    --input: 26 24% 20%;
+    --ring: 137 51% 42%;
+  }
+}
+
+@layer utilities {
+  .drag {
+    -webkit-app-region: drag;
+  }
+  .no-drag {
+    -webkit-app-region: no-drag;
+  }
+  .tabular-nums {
+    font-variant-numeric: tabular-nums;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground antialiased;
+    font-feature-settings: 'cv02', 'cv03', 'cv04', 'cv11';
+  }
+
+  /* Rustic Coffee & Foliage Scrollbar */
+  ::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+  }
+
+  ::-webkit-scrollbar-track {
+    background: transparent;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    @apply bg-muted-foreground/25 rounded-full border-2 border-transparent hover:bg-primary/50 transition-colors;
+  }
+
+  ::-webkit-scrollbar-corner {
+    background: transparent;
+  }
+}
+
+/* Leaflet overrides for smooth rounded map containers */
+.leaflet-container {
+  font-family: inherit;
+  background: #1a140f;
+}
+
+.leaflet-popup-content-wrapper {
+  border-radius: 14px !important;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.28) !important;
+}
+
+.agro-custom-marker {
+  background: transparent;
+  border: none;
+}

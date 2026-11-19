@@ -1,0 +1,24 @@
+# Dependencies
+node_modules/
+venv/
+.venv/
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.sqlite3
+
+# Build outputs
+dist/
+dist-web/
+dist-electron/
+out/
+
+# Environment & logs
+.env
+.env.local
+.env.*.local
+*.log*
+.eslintcache
+.DS_Store

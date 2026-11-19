@@ -1,0 +1,21 @@
+services:
+  postgres:
+    image: postgres:16-alpine
+    container_name: agrotower_postgres
+    restart: unless-stopped
+    environment:
+      POSTGRES_DB: agrotower_db
+      POSTGRES_USER: agrotower_user
+      POSTGRES_PASSWORD: agrotower_pass
+    ports:
+      - "5438:5432"
+    volumes:
+      - agrotower_pgdata:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U agrotower_user -d agrotower_db"]
+      interval: 5s
+      timeout: 5s
+      retries: 10
+
+volumes:
+  agrotower_pgdata:
