@@ -36,7 +36,9 @@ import {
   ArrowRight,
 } from 'lucide-react'
 
-const API_BASE = 'http://127.0.0.1:8001/api'
+const API_BASE =
+  (import.meta as unknown as { env?: Record<string, string> }).env?.VITE_API_BASE ||
+  'http://127.0.0.1:8001/api'
 
 interface CatalogOffer {
   id: string
